@@ -54,17 +54,6 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  Future<void> _pickImage() async {
-    final picker = ImagePicker();
-    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
-
-    if (pickedFile != null) {
-      setState(() {
-        _imageFile = File(pickedFile.path);
-      });
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -101,12 +90,6 @@ class _ProfilePageState extends State<ProfilePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  CircleAvatar(
-                    radius: 80,
-                    backgroundImage: _imageFile != null
-                        ? FileImage(_imageFile!)
-                        : AssetImage('assets/default_avatar.png') as ImageProvider,
-                  ),
                   SizedBox(height: 8),
                   ElevatedButton(
                     onPressed: _pickImage,
