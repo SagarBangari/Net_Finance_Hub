@@ -90,11 +90,6 @@ class _ProfilePageState extends State<ProfilePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 8),
-                  ElevatedButton(
-                    onPressed: _pickImage,
-                    child: Text('Change Profile Picture'),
-                  ),
                   SizedBox(height: 20),
                   Text(
                     'Name: ${userData['name']}',
