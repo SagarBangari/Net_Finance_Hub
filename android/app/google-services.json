@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "933913866415",
+    "project_id": "net-finance-hub-9d48b",
+    "storage_bucket": "net-finance-hub-9d48b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:933913866415:android:590a44fb048cf36a9a245a",
+        "android_client_info": {
+          "package_name": "com.ex"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgOXzRcl2bckTHNJO8CP6aIndQb594hHA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
