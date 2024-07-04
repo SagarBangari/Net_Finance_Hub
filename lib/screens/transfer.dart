@@ -38,10 +38,14 @@ class _TransferPageState extends State<TransferPage> {
           await FirebaseFirestore.instance.runTransaction((transaction) async {
             final userSnapshot = await transaction.get(userRef);
             final recipientSnapshot = await transaction.get(recipientRef);
-
-            if (userSnapshot.exists && recipientSnapshot.exists) {
+          
+            if (userSnapshot.exists && recipientSnapshot.exists ) {
+              final double userBalance = userSnapshot.data()?['balance'];
+            
+            // Check if user has sufficient balance
+            if (userBalance >= amount) {
               transaction.update(userRef, {
-                'balance': FieldValue.increment(-amount),
+                'balance': FieldValue.increment(-amount)  ,
               });
               transaction.update(recipientRef, {
                 'balance': FieldValue.increment(amount),
@@ -62,11 +66,18 @@ class _TransferPageState extends State<TransferPage> {
                  'recipient': recipientEmail,
                  'sender': user.email,
               });
-            }
-            setState(() {
+                setState(() {
               isLoading = false;
               errorMessage = 'Transfer successful!!';
             });
+              }else {
+              setState(() {
+                isLoading = false;
+                errorMessage = 'Insufficient balance!';
+              });
+            }
+            }
+          
           });
         } else {
           setState(() {
